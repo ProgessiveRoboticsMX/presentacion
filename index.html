@@ -329,7 +329,46 @@
             border: 0;
         }
 
+[⚠️ Suspicious Content] /* Estilos para la sección de Audio */
+.inmersion-section {
+    padding: 120px 0;
+    background: #1a1a2e;
+    text-align: center;
+}
 
+.audio-player-container {
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.audio-player {
+    width: 100%;
+    background: #2a2a2a;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.audio-player::-webkit-media-controls-panel {
+    background-color: #2a2a2a;
+}
+
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-volume-slider {
+    color: #00d4aa;
+}
+
+.audio-text {
+    margin-top: 20px;
+    color: #b0b0b0;
+    font-size: 1.1rem;
+}
+
+.audio-text strong {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+        
         /* Specs Section */
         .specs {
             padding: 120px 0;
@@ -674,6 +713,23 @@
         </div>
     </section>
 
+    <section id="audio-inmersion" class="inmersion-section">
+    <div class="container">
+        <h2 class="animate-on-scroll">Escucha la Historia de Progressive Robotics</h2>
+        <p class="animate-on-scroll">Sumérgete en un episodio que explica cómo estamos democratizando la automatización robótica.</p>
+        <div class="audio-player-container animate-on-scroll">
+            <audio controls class="audio-player">
+                <source src="nombre-de-tu-audio.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+        <div class="audio-text animate-on-scroll">
+            <p><strong>Episodio:</strong> El Windows del Paletizado</p>
+            <p>Descubre nuestra visión de hacer la robótica accesible, asequible y simple para todos.</p>
+        </div>
+    </div>
+</section>
+    
     <section class="specs" id="especificaciones">
         <div class="container">
             <div class="specs-content">
