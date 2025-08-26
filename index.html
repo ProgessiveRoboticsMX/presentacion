@@ -45,167 +45,281 @@
 
         .logo {
             font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
+            font-weight: bold;
+            color: #00d4aa;
+            text-decoration: none;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
+            gap: 30px;
         }
 
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
+        .nav-links a {
             color: #ffffff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: #00ffc8;
+        .nav-links a:hover {
+            color: #00d4aa;
         }
 
         /* Hero Section */
-        #hero {
-            height: 100vh;
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Imagen1.png') no-repeat center center/cover;
             position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%2300d4aa;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%2300d4aa;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"><animateTransform attributeName="transform" type="translate" values="0 0;800 600;0 0" dur="20s" repeatCount="indefinite"/></circle><circle cx="800" cy="800" r="150" fill="url(%23a)"><animateTransform attributeName="transform" type="translate" values="0 0;-600 -400;0 0" dur="25s" repeatCount="indefinite"/></circle></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
         }
 
         .hero-content {
-            z-index: 1;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 4em;
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #ffffff 0%, #00d4aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
         }
 
-        .hero-content p {
-            font-size: 1.2em;
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
             margin-bottom: 30px;
+            font-weight: 300;
         }
 
-        .btn {
+        .cta-button {
             display: inline-block;
-            padding: 12px 25px;
-            background: #00ffc8;
-            color: #0a0a0a;
-            text-decoration: none;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+            color: white;
+            padding: 18px 40px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            background: #00e0a8;
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
         }
 
-        /* Secciones */
-        section {
-            padding: 80px 0;
+        .hero-image {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
-        h2 {
-            font-size: 3em;
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: #111111;
+            position: relative;
+        }
+
+        .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
 
-        /* Características */
-        #features .container {
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            margin-bottom: 80px;
         }
 
-        .feature-item {
-            background: #111;
-            padding: 30px;
-            border-radius: 10px;
+        .feature-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
+            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-item:hover {
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 255, 200, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 212, 170, 0.2);
+            border-color: rgba(0, 212, 170, 0.3);
         }
 
-        .feature-item img {
+        .feature-icon {
             width: 80px;
             height: 80px;
-            margin-bottom: 20px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
         }
 
-        .feature-item h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
 
-        /* Casos de uso */
-        #casos-uso .container {
+        .feature-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
 
-        .caso-item {
-            background: #111;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .caso-item:hover {
+        .gallery-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 255, 200, 0.1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
         }
 
-        .caso-item img {
+        .gallery-item img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .caso-item h3 {
-            font-size: 1.5em;
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.8), rgba(0, 184, 148, 0.8));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            text-align: center;
+            color: white;
+        }
+
+        .overlay-text h4 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
-
-        /* Demo Video */
-        #demo-video .container {
-            text-align: center;
-        }
-
-        #demo-video h2 {
-            margin-bottom: 30px;
-        }
-
+        
+        /* Video Container */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
             max-width: 100%;
             background: #000;
-            border-radius: 10px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin-top: 60px;
         }
-
+        
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -215,314 +329,565 @@
             border: 0;
         }
 
-        /* Testimonios */
-        #testimonios {
-            background: #111;
+
+        /* Specs Section */
+        .specs {
+            padding: 120px 0;
+            background: #111111;
         }
 
-        .testimonio-item {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonio-item blockquote {
-            font-style: italic;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            position: relative;
-            padding: 20px;
-            border-left: 5px solid #00ffc8;
-        }
-
-        .testimonio-item cite {
-            display: block;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 1em;
-            margin-top: 10px;
-            color: #00ffc8;
-        }
-
-        /* Counter Section */
-        #stats {
-            background: #0a0a0a;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .stats-grid {
+        .specs-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .stat-item h3 {
-            font-size: 3em;
-            color: #00ffc8;
-            margin-bottom: 5px;
+        .specs-list {
+            list-style: none;
         }
 
-        .stat-item p {
-            font-size: 1.2em;
+        .specs-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        /* CTA */
-        #cta {
-            background: #00ffc8;
-            color: #0a0a0a;
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #00d4aa;
+            font-size: 1.2rem;
+        }
+
+        .spec-text {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        .spec-highlight {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
             text-align: center;
-            padding: 80px 0;
         }
 
-        #cta h2 {
-            font-size: 3em;
+        .cta-section h2 {
+            font-size: 3rem;
+            color: white;
             margin-bottom: 20px;
         }
 
-        #cta .btn {
-            background: #0a0a0a;
-            color: #00ffc8;
-            font-size: 1.1em;
-            padding: 15px 30px;
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        #cta .btn:hover {
-            transform: scale(1.05);
-            background: #1a1a1a;
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #00d4aa;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #00d4aa;
+            transform: translateY(-5px);
         }
 
         /* Footer */
         footer {
-            background: #111;
-            color: #ffffff;
-            text-align: center;
-            padding: 40px 0;
+            background: #0a0a0a;
+            padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #00d4aa;
             margin-bottom: 20px;
+            font-size: 1.3rem;
         }
 
-        .footer-logo img {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-
-        .footer-social {
-            margin-top: 10px;
-        }
-
-        .footer-social a {
-            color: #ffffff;
-            margin: 0 10px;
-            font-size: 24px;
+        .footer-section p, .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            line-height: 1.8;
             transition: color 0.3s ease;
         }
 
-        .footer-social a:hover {
-            color: #00ffc8;
+        .footer-section a:hover {
+            color: #00d4aa;
         }
 
-        .footer-info p {
-            margin: 5px 0;
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
         }
 
-        /* Estilos responsivos */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
+            .hero-content {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            nav ul {
-                margin-top: 15px;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
-            nav ul li {
-                margin: 0 10px;
+            .specs-content {
+                grid-template-columns: 1fr;
             }
 
-            .hero-content h1 {
-                font-size: 2.5em;
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="logo.png" alt="Progressive Robotics Logo" style="height: 50px;">
-                </div>
-                <ul>
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#features">Características</a></li>
-                    <li><a href="#casos-uso">Casos de Uso</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Progressive Robotics Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#especificaciones">Especificaciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="container hero-content">
-                <h1>Software Versátil de Paletizado</h1>
-                <p>Automatización inteligente para procesos de empaque, paletizado y carga.</p>
-                <a href="#contacto" class="btn">Contáctanos</a>
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Elimina el Paletizado Manual, Aumenta tu Productividad</h1>
+                    <p class="subtitle">Automatiza con nuestro software inteligente. Olvídate de los altos costos y riesgos laborales. Invierte y **recupera tu dinero en menos de 1 año**.</p>
+                    <a href="#caracteristicas" class="cta-button">Descubre Nuestra Tecnología</a>
+                </div>
+                <div class="hero-image">
+                    <img src="Imagen1.png" alt="Progressive Robotics - Automatización Robótica">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="features">
-            <div class="container">
-                <h2>Características Principales</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <img src="Imagen4.gif" alt="Icono de paletizado">
-                        <h3>Paletizado flexible</h3>
-                        <p>Nuestro software se adapta a cualquier tamaño, forma y tipo de producto, generando patrones de paletizado óptimos.</p>
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Soluciones a tus Puntos de Dolor</h2>
+                <p>Nuestro software resuelve los problemas reales que enfrenta tu negocio, mejorando la seguridad, la eficiencia y la rentabilidad.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">💰</div>
+                    <h3>ROI Demostrable</h3>
+                    <p>Reemplaza tareas repetitivas y **recupera tu inversión en menos de 1 año** [cite: 81, 136], con celdas robóticas industriales completas **por debajo de los $100,000 USD**[cite: 84].</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Seguridad y Bienestar Laboral</h3>
+                    <p>El levantamiento manual de cajas es la principal causa de lesiones[cite: 25]. Nuestro robot **elimina este riesgo por completo** [cite: 26] y mejora el bienestar de tus empleados[cite: 27].</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Adiós a la Rotación de Personal</h3>
+                    <p>Las empresas sufren por la **alta rotación de personal** [cite: 23] en tareas físicamente agotadoras. Nuestro sistema asume el trabajo pesado, liberando a tu gente para trabajos de mayor valor[cite: 42].</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Eficiencia Extrema</h3>
+                    <p>Un humano se cansa y su velocidad disminuye[cite: 28]. Nuestro robot trabaja a una velocidad constante de **hasta 11 ciclos por minuto**, sin fatiga ni distracciones[cite: 30].</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Patrones de Apilado Perfectos</h3>
+                    <p>Los pallets manuales son inestables[cite: 31]. Nuestra IA construye **pallets perfectos cada vez**[cite: 32], asegurando la estabilidad y protegiendo tu mercancía.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Fácil de Usar (Plug and Play)</h3>
+                    <p>No se necesita un programador[cite: 69]. Un operador puede crear un nuevo patrón de paletizado en **solo 60 segundos** usando una pantalla táctil[cite: 68].</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#contacto" class="cta-button">Agenda una Demostración</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Ve Nuestra Tecnología en Acción</h2>
+                <p>Aplicaciones del mundo real y automatización robótica de vanguardia.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen9.gif" alt="Sistema de Paletizado Automatizado">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Paletizado Mixto con IA</h4>
+                            <p>La IA analiza y apila cajas de distintos tamaños de forma estable en tiempo real[cite: 72].</p>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <img src="Imagen6.gif" alt="Icono de robot">
-                        <h3>Compatibilidad universal</h3>
-                        <p>Funciona con cualquier marca de robot industrial, permitiéndote integrar la automatización sin cambiar tu hardware actual.</p>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen10.gif" alt="Planificación de Movimiento IA">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Planificación de Movimiento Ultrarrápido</h4>
+                            <p>Trayectorias libres de colisiones en tiempo real[cite: 66].</p>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <img src="Imagen7.gif" alt="Icono de IA">
-                        <h3>Visión Inteligente</h3>
-                        <p>Utilizamos sistemas de visión artificial para guiar al robot, asegurando una precisión milimétrica en cada movimiento.</p>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen3.png" alt="Interfaz de Usuario">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Interfaz Intuitiva</h4>
+                            <p>Crea una nueva "receta" en solo 60 segundos[cite: 68].</p>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <img src="Imagen8.png" alt="Icono de interfaz de usuario">
-                        <h3>Interfaz intuitiva</h3>
-                        <p>Una interfaz de usuario fácil de usar que permite configurar nuevos proyectos de paletizado en minutos, sin necesidad de programación.</p>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen4.gif" alt="Paletizado Simple">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Flexibilidad y Escalabilidad</h4>
+                            <p>Solución "Plug and Play"  lista para instalar y funcionar rápidamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen8.png" alt="Multi-pick">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Máxima Eficiencia</h4>
+                            <p>Capacidad **Multi-pick** para recoger varias cajas a la vez y maximizar el rendimiento[cite: 74].</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="Imagen7.gif" alt="Compatibilidad">
+                    <div class="gallery-overlay">
+                        <div class="overlay-text">
+                            <h4>Agnóstico al Robot</h4>
+                            <p>Compatible con marcas líderes como **FANUC**, **KUKA**, **YASKAWA**[cite: 75].</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section id="casos-uso">
-            <div class="container">
-                <h2>Aplicaciones y Casos de Uso</h2>
-                <div class="casos-grid">
-                    <div class="caso-item">
-                        <img src="Imagen9.gif" alt="Caso de uso 1">
-                        <h3>Almacenes</h3>
-                        <p>Agiliza la preparación de pedidos y el apilamiento de cajas, reduciendo el esfuerzo físico y aumentando la eficiencia.</p>
-                    </div>
-                    <div class="caso-item">
-                        <img src="Imagen10.gif" alt="Caso de uso 2">
-                        <h3>Líneas de Producción</h3>
-                        <p>Automatiza el final de línea, desde el empaque hasta la carga en tarimas, optimizando el flujo de trabajo.</p>
-                    </div>
-                    <div class="caso-item">
-                        <img src="Imagen3.png" alt="Caso de uso 3">
-                        <h3>Logística</h3>
-                        <p>Mejora la velocidad y precisión de la carga de camiones, asegurando que cada envío se complete de manera eficiente.</p>
+            <div class="video-container animate-on-scroll">
+                <iframe src="https://www.youtube.com/embed/NTtXUCUEeWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs" id="especificaciones">
+        <div class="container">
+            <div class="specs-content">
+                <div class="animate-on-scroll">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: #ffffff;">El Cerebro: Software STAKIT con IA</h2>
+                    <p style="font-size: 1.2rem; color: #b0b0b0; margin-bottom: 40px;">No solo vendemos un robot, vendemos el **cerebro** que lo controla[cite: 12]. Esto es lo que nos hace especiales[cite: 67].</p>
+                    
+                    <ul class="specs-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Paletizado Mixto con IA</span> 
+                                <span class="spec-text">Apila cajas de tamaños aleatorios de forma estable sin secuenciación[cite: 71].</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Planificador de Movimiento Ultrarrápido</span> 
+                                <span class="spec-text">Garantías libres de colisiones sin singularidades[cite: 66].</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Despaletizado de Cajas Mixtas</span> 
+                                <span class="spec-text">Segmentación de cajas basada en IA que soporta hasta 1000 cajas/hora[cite: 73].</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Compatibilidad Universal</span> 
+                                <span class="spec-text">Funciona con cualquier marca de robot, como FANUC, KUKA, Universal Robots[cite: 75, 76].</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Multi-pick</span> 
+                                <span class="spec-text">La pinza puede recoger varias cajas a la vez para maximizar el rendimiento[cite: 74].</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <span class="spec-highlight">Integración Fácil</span> 
+                                <span class="spec-text">Interfaz intuitiva para integradores y usuarios finales[cite: 73].</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 40px; border-radius: 20px; border: 1px solid rgba(0, 212, 170, 0.3);">
+                        <h3 style="color: #00d4aa; font-size: 1.8rem; margin-bottom: 25px; text-align: center;">Transforma tu Operación</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                            <div style="background: rgba(0, 212, 170, 0.1); padding: 20px; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">📉</div>
+                                <h4 style="color: #ffffff; margin-bottom: 10px;">Reduce Costos</h4>
+                                <p style="color: #b0b0b0; font-size: 0.9rem;">Un robot no tiene costos variables de seguro ni tiempo extra[cite: 21, 22].</p>
+                            </div>
+                            
+                            <div style="background: rgba(0, 212, 170, 0.1); padding: 20px; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 10px;">📈</div>
+                                <h4 style="color: #ffffff; margin-bottom: 10px;">Aumenta Productividad</h4>
+                                <p style="color: #b0b0b0; font-size: 0.9rem;">Un robot trabaja 24/7 sin fatiga ni distracciones[cite: 22, 28, 29].</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; text-align: center;">
+                            <h4 style="color: #00d4aa; margin-bottom: 15px; font-size: 1.3rem;">Nos enfocamos en la colaboración</h4>
+                            <p style="color: #ffffff; margin-bottom: 15px; font-weight: 600;">Nuestro software democratiza la automatización [cite: 8], haciendo que la robótica sea accesible para todos[cite: 9].</p>
+                            <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 15px;">
+                                <span style="background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">Plug & Play </span>
+                                <span style="background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">Flexible [cite: 46]</span>
+                                <span style="background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">Seguro [cite: 38]</span>
+                                <span style="background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">Conectado [cite: 47]</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="demo-video">
-            <div class="container">
-                <h2>Video Demo</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/NTtXUCUEeWU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">¿Listo para Transformar tus Operaciones?</h2>
+            <p class="animate-on-scroll">Únete a las empresas líderes en todo el mundo que confían en Progressive Robotics. **Solicita una demo** para ver nuestro robot trabajando en acción  y comprueba el retorno de tu inversión.</p>
+            <div class="cta-buttons animate-on-scroll">
+                <a href="#contacto" class="btn-primary">Solicitar Demo</a>
+                <a href="#especificaciones" class="btn-secondary">Saber Más</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Progressive Robotics</h3>
+                    <p>Democratizando la automatización robótica a través de software potente y fácil de usar. Empoderamos a las empresas para que se conviertan en organizaciones operacionalmente impactantes y centradas en el cliente.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Soluciones</h3>
+                    <p><a href="#caracteristicas">Paletizado de Cajas Simples</a></p>
+                    <p><a href="#caracteristicas">Paletizado de Cajas Mixtas</a></p>
+                    <p><a href="#caracteristicas">Sistemas de Despaletizado</a></p>
+                    <p><a href="#caracteristicas">Planificación de Movimiento</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <p><a href="#especificaciones">Especificaciones Técnicas</a></p>
+                    <p><a href="#">Documentación</a></p>
+                    <p><a href="#">Guía de Integración</a></p>
+                    <p><a href="#">Soporte al Cliente</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Teléfonos: 5516997859 / 5665837626</p>
+                    <p>Email: progressiveroboticsmx@incorvia.com.mx</p>
                 </div>
             </div>
-        </section>
-
-        <section id="testimonios">
-            <div class="container">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <div class="testimonio-item">
-                    <blockquote>"El software de Progressive Robotics ha transformado nuestra operación. La facilidad de uso y la compatibilidad con nuestros robots existentes nos permitieron aumentar la productividad de manera significativa."</blockquote>
-                    <cite>- Juan Pérez, Gerente de Operaciones</cite>
-                </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Progressive Robotics. Todos los derechos reservados. | Haciendo el manejo robótico accesible, asequible, eficiente e increíblemente simple.</p>
             </div>
-        </section>
-
-        <section id="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3 class="counter-up" data-target="99%">99%</h3>
-                        <p>Precisión en el Paletizado</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter-up" data-target="30+">30+</h3>
-                        <p>Clientes Satisfechos</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter-up" data-target="24/7">24/7</h3>
-                        <p>Soporte Técnico</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter-up" data-target="2x">2x</h3>
-                        <p>Aumento de Productividad</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="cta">
-            <div class="container">
-                <h2>¿Listo para automatizar tu proceso?</h2>
-                <p>Contáctanos para una demostración gratuita y descubre cómo podemos ayudarte a optimizar tus operaciones.</p>
-                <a href="#contacto" class="btn">Agenda una Demo</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="Progressive Robotics Logo">
-            </div>
-            <div class="footer-info">
-                <p>Teléfonos: 5516997859 / 5665837626</p>
-                <p>Email: progressiveroboticsmx@incorvia.com.mx</p>
-            </div>
-            <div class="footer-social">
-                <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            <p style="margin-top: 20px;">&copy; 2024 Progressive Robotics. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Animación del header
+        // Navegación suave para enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos los elementos con la clase animate-on-scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Fondo del header al hacer scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
             } else {
-                header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
             }
         });
 
-        // Animación de contadores
+        // Efectos hover interactivos
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Efecto de parallax sutil en el hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero::before');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Contador animado para las especificaciones
         const animateCounters = () => {
-            document.querySelectorAll('.counter-up').forEach(counter => {
-                const target = counter.getAttribute('data-target');
-                if (target) {
+            const counters = document.querySelectorAll('.spec-highlight');
+            counters.forEach(counter => {
+                const target = counter.innerText;
+                if (target.includes('ms') || target.includes('cajas')) {
                     const number = target.match(/\d+/);
                     if (number) {
                         const finalNumber = parseInt(number[0]);
